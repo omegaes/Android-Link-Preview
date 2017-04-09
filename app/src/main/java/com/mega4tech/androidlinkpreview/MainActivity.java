@@ -73,11 +73,17 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onFailed(Exception e) {
+                    public void onFailed(final Exception e) {
 
-                        progress.setVisibility(View.GONE);
-                        previewGroup.setVisibility(View.VISIBLE);
-                        Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                progress.setVisibility(View.GONE);
+                                previewGroup.setVisibility(View.VISIBLE);
+                                Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
                     }
                 });
             }
