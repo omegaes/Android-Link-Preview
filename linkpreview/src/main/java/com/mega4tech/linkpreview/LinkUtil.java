@@ -41,7 +41,7 @@ public class LinkUtil {
 
     }
 
-    public void getLinkPreview(final Context context, @NonNull final String url, final  listener) {
+    public void getLinkPreview(final Context context, @NonNull final String url, final  GetLinkPreviewListener listener) {
 
         if (TextUtils.isEmpty(url)) {
             if (listener != null)
